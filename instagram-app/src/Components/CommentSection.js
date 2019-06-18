@@ -21,9 +21,24 @@ class CommentSection extends React.Component {
     render() {
         return(
             <div>
+            
+                <p>               
+                <img
+                alt='post thumbnail'
+                className='post-like'
+                src={this.props.thumbnail}    
+                />
+                {this.props.username}</p>
+                <img
+                    alt='post tumbnail'
+                    className='post-image'
+                    src={this.props.img}    
+                />
+                <p> {this.props.likes} </p>
                 {this.props.comment && this.props.comment.map(commentsInfo => {
-                    return <p>{commentsInfo.username} {commentsInfo.text}</p>;
+                    return <p>{commentsInfo.text} - {commentsInfo.username}</p>;
                 })}
+                <p> {this.props.date} </p>
                 <form onSubmit={this.clickButton}>
                     <input 
                         type='text'
