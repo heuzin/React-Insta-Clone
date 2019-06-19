@@ -9,13 +9,15 @@ class App extends React.Component {
   constructor() {
   super();
     this.state = {
-      dummyData: []
+      dummyData: [],
+      filteredPosts: []
     };
 }
 
   componentDidMount() {
     this.setState({
-      dummyData: DummyData
+      dummyData: DummyData,
+      filteredPosts: DummyData
     })
   }
 
@@ -35,13 +37,26 @@ class App extends React.Component {
     })
   }
 
+  searchUsername = data => {
+    let posts = this.state.dummyData.filter(post => {
+      if (post.username.includes(data)){
+        return post;
+      }
+    });
+    this.setState({ filteredPosts: posts })
+  }
+
   render() {
     console.log(DummyData)
     return (
       <div>
-        <SearchBar />
-        {this.state.dummyData.map(data =>{
-          return <PostContainer key={data.imageUrl} addNewCommment={this.addNewCommment} dataInfo={data}/>
+        <SearchBar search={this.searchUsername}/>
+        {this.state.filteredPosts.map(data =>{
+          return <PostContainer 
+                    key={data.imageUrl} 
+                    addNewCommment={this.addNewCommment} 
+                    dataInfo={data}
+                    />
       })}
       </div>
     );

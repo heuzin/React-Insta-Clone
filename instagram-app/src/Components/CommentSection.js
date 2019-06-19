@@ -5,7 +5,7 @@ import "../../node_modules/font-awesome/css/font-awesome.min.css"
 class CommentSection extends React.Component {
     constructor(props){
         super(props);
-        this.state= {
+        this.state = {
             comment: "",
             likes: props.likes
         }
