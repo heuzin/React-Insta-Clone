@@ -29,34 +29,42 @@ class CommentSection extends React.Component {
     render() {
         return(
             <div>
-            
-                <p>               
-                <img
-                alt='post thumbnail'
-                className='post-like'
-                src={this.props.thumbnail}    
-                />
-                {this.props.username}</p>
+                <div className="usernameHeader">
+                    <img
+                    alt='post thumbnail'
+                    className='post-like'
+                    src={this.props.thumbnail}    
+                    />
+                    <span className="username"> {this.props.username}</span>
+                </div> 
                 <img
                     alt='post tumbnail'
                     className='post-image'
                     src={this.props.img}    
                 />
-                <p> <i onClick={this.incrementLike} className="fa fa-heart"> </i></p>
-                <p> {this.state.likes} </p>
-                {this.props.comment && this.props.comment.map(commentsInfo => {
-                    return <p>{commentsInfo.text} - {commentsInfo.username}</p>;
-                })}
-                <p> {this.props.date} </p>
-                <form onSubmit={this.clickButton}>
-                    <input 
-                        type='text'
-                        value={this.state.comment}
-                        onChange={this.changeHandler} 
-                        placeholder='comment' 
-                        name='comment' />          
-                    <button type="submit">Add a comment</button>
-                </form>
+                <div className="commentSection">
+                    <p> <i onClick={this.incrementLike} className="fa fa-heart fa-lg heart"> </i> <i className='fa fa-comment fa-lg'></i></p>
+                    <p className='likes'> {this.state.likes} </p>
+                    {this.props.comment && this.props.comment.map(commentsInfo => {
+                        return (
+                            <div>
+                                <p> <span className='userInfo'>{commentsInfo.username} </span> <span>{commentsInfo.text}</span> </p>
+                            </div>
+                        )
+                    })}
+                    <p className='date'> {this.props.date} </p>
+                </div> 
+                <div className='addCommentSection'>
+                    <form onSubmit={this.clickButton}>
+                        <input 
+                            type='text'
+                            value={this.state.comment}
+                            onChange={this.changeHandler} 
+                            placeholder='Add a comment...' 
+                            name='comment' />          
+                        <button type="submit">...</button>
+                    </form>
+                </div>            
             </div>
         )
     }

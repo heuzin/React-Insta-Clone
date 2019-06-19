@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header input {
+    height: 15px;
+    align-self: center;
+}
+
+.instagramHeader {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.instagramHeader h3 {
+    border-left: 1px solid black;
+    padding-left: 10px;
+}
+
+.logosHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 200px;
+}

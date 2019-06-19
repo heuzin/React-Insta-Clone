@@ -1,3 +1,61 @@
-.fa{
-    color: silver;
+.heart{
+    color: red;
+}
+
+.usernameHeader {
+    display: flex;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-top: 0.5px solid black;
+}
+
+.post-like {
+    height: 40px;
+    border-radius: 20px;
+}
+
+.username {
+    align-self: center;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.post-image {
+    width: 100%;
+}
+
+.likes {
+    font-weight: bold;
+}
+
+.commentSection {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.addCommentSection {
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.addCommentSection input {
+    border: 0;
+    width: 90%;
+    height: 40px;
+}
+
+.addCommentSection button {
+    border: 0;
+    background-color: white;
+}
+
+.userInfo {
+    font-weight: bold;
+}
+
+.date {
+    font-size: 11px;
+    border-bottom: 0.5px solid;
+    padding-bottom: 10px;
 }
