@@ -25,7 +25,7 @@ class App extends React.Component {
       username: Date.now()
     };
     let findPost = this.state.dummyData.map(function(element){ 
-      if (element.id == id){
+      if (element.id === id){
         element.comments.push(newComment);
       }
       return element;
@@ -41,7 +41,7 @@ class App extends React.Component {
       <div>
         <SearchBar />
         {this.state.dummyData.map(data =>{
-          return <PostContainer addNewCommment={this.addNewCommment} dataInfo={data}/>
+          return <PostContainer key={data.imageUrl} addNewCommment={this.addNewCommment} dataInfo={data}/>
       })}
       </div>
     );

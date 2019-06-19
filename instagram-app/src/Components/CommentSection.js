@@ -1,10 +1,13 @@
 import React from 'react';
+import './commentSection.css'
+import "../../node_modules/font-awesome/css/font-awesome.min.css"
 
 class CommentSection extends React.Component {
     constructor(props){
         super(props);
         this.state= {
-            comment: ""
+            comment: "",
+            likes: props.likes
         }
     }
 
@@ -16,6 +19,11 @@ class CommentSection extends React.Component {
         event.preventDefault();
         this.props.addNewCommment(this.state.comment, this.props.id);
         this.setState({ comment: ""});
+    }
+
+    incrementLike = () => {
+        let likes = this.state.likes + 1;
+        this.setState({ likes: likes });
     }
 
     render() {
@@ -34,7 +42,8 @@ class CommentSection extends React.Component {
                     className='post-image'
                     src={this.props.img}    
                 />
-                <p> {this.props.likes} </p>
+                <p> <i onClick={this.incrementLike} className="fa fa-heart"> </i></p>
+                <p> {this.state.likes} </p>
                 {this.props.comment && this.props.comment.map(commentsInfo => {
                     return <p>{commentsInfo.text} - {commentsInfo.username}</p>;
                 })}
